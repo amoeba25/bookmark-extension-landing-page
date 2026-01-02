@@ -1,0 +1,88 @@
+<section class="w-full bg-blue py-10">
+  <div class="mx-auto max-w-xl px-6 text-center text-white">
+    <!-- Small text -->
+    <p class="text-sm tracking-[0.3em] uppercase opacity-80 font-bold">
+      35,000+ already joined
+    </p>
+
+    <!-- Main heading -->
+    <h2 class="mt-6 text-2xl font-bold md:text-4xl">
+      Stay up to date with what we’re doing
+    </h2>
+
+    <!-- Form -->
+    <form
+      id="contact-form"
+      novalidate
+      class="mx-auto mt-10 flex max-w-md flex-col gap-4 md:flex-row md:items-start md:justify-center"
+    >
+      <!-- Input wrapper -->
+      <div class="relative w-full flex-1">
+        <input
+          id="email-input"
+          type="email"
+          placeholder="Enter your email address"
+          class="w-full rounded-md px-4 py-3 text-gray-800 bg-white placeholder:text-gray-300
+                 focus:outline-none focus:ring-2 focus:ring-white"
+        />
+
+        <!-- Error icon -->
+        <img
+          src="/icon-error.svg"
+          alt="Error"
+          class="absolute right-4 top-1/2 hidden h-5 w-5 -translate-y-7"
+          id="email-error-icon"
+        />
+
+        <!-- Error message -->
+        <p
+          class="hidden rounded-b-md bg-red px-4 py-2 text-left text-sm text-white"
+          id="email-error-text"
+        >
+          Whoops, make sure it is a correct email
+        </p>
+      </div>
+
+      <!-- Button -->
+      <button
+        type="submit"
+        class="rounded-md bg-red px-6 py-3
+               text-sm font-semibold text-white
+               shadow-sm
+               border border-transparent
+               hover:bg-white hover:border-red hover:border hover:text-red transition hover:cursor-pointer"
+      >
+        Contact Us
+      </button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("contact-form");
+    const emailInput = document.getElementById(
+      "email-input"
+    ) as HTMLInputElement;
+    const errorIcon = document.getElementById("email-error-icon");
+    const errorText = document.getElementById("email-error-text");
+
+    form?.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const email = emailInput?.value.trim();
+      const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+      if (!isValidEmail) {
+        emailInput?.classList.add("border-2", "border-red", "pr-10");
+        errorIcon?.classList.remove("hidden");
+        errorText?.classList.remove("hidden");
+      } else {
+        emailInput?.classList.remove("border-2", "border-red", "pr-10");
+        errorIcon?.classList.add("hidden");
+        errorText?.classList.add("hidden");
+
+        // Submit logic here (API / form handling)
+        console.log("Email submitted:", email);
+      }
+    });
+  </script>
+</section>

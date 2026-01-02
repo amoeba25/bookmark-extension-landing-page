@@ -3,15 +3,16 @@ export interface Props {
   name: string;
   link: string;
   color: string;
+  className?: string;
 }
 
-const { name, link, color } = Astro.props;
+const { name, link, color, className = "" } = Astro.props;
 ---
 
 <a
   href={link}
-  class="text-sm font-medium uppercase tracking-wid
-         hover:opacity-80 transition"
+  class=`text-sm tracking-widest font-semibold uppercase
+         hover:opacity-80 transition ${className}`
   style={{ color: `var(${color})` }}
 >
   {name}

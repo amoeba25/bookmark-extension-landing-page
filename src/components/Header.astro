@@ -2,16 +2,14 @@
 import NavLink from "./NavLink.astro";
 
 const navLinkData = [
-  { name: "Features", link: "/features" },
-  { name: "Pricing", link: "/pricing" },
-  { name: "Contact", link: "/contact" },
+  { name: "Features", link: "/" },
+  { name: "Pricing", link: "/" },
+  { name: "Contact", link: "/" },
 ];
 ---
 
 <header id="site-header" class="absolute top-0 left-0 z-20 w-full">
-  <nav
-    class="mx-auto flex max-w-7xl items-center justify-between px-6 py-6"
-  >
+  <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
     <!-- Logo -->
     <a href="/" class="inline-flex items-center z-30">
       <img
@@ -54,8 +52,8 @@ const navLinkData = [
         ))
       }
       <a
-        href="/login"
-        class="rounded-md border bg-red border-white px-6 py-2 text-sm uppercase text-white hover:bg-white hover:text-slate-900 transition"
+        href="/"
+        class="rounded-md border bg-red border-white px-8 py-3 text-sm uppercase tracking-widest font-bold text-white hover:bg-white hover:text-red hover:border-red transition"
       >
         Login
       </a>
@@ -65,30 +63,33 @@ const navLinkData = [
   <!-- Mobile menu (fullscreen) -->
   <div
     id="mobile-menu"
-    class="fixed inset-0 z-10 hidden bg-slate-900
+    class="fixed inset-0 z-10 hidden bg-blue-950/90
          flex flex-col items-center justify-between
-         px-6 pt-32 pb-12 text-center md:hidden"
+         px-6 pt-24 pb-12 text-center md:hidden"
   >
     <!-- Nav links -->
-    <div class="flex flex-col items-center gap-6">
+    <div class="flex flex-col items-stretch gap-6 w-full max-w-78">
       {
         navLinkData.map((navlink) => (
           <NavLink
             name={navlink.name}
             link={navlink.link}
             color="--color-white"
+            className="font-light text-xl! border-t-2 border-t-gray-600 pt-4"
           />
         ))
       }
 
-      <a
-        href="/login"
-        class="mt-4 w-full max-w-xs rounded-md border border-white px-6 py-3
-             text-sm font-semibold uppercase text-white
-             hover:bg-white hover:text-slate-900 transition"
-      >
-        Login
-      </a>
+      <div class="w-full border-t-2 border-t-gray-600 pt-4">
+        <a
+          href="/"
+          class="block mt-4 w-full rounded-md border-2 border-white px-6 py-3
+               text-xl font-normal uppercase tracking-widest text-white
+               hover:bg-white hover:text-slate-900 transition"
+        >
+          Login
+        </a>
+      </div>
     </div>
 
     <!-- Social icons -->
@@ -136,7 +137,7 @@ const navLinkData = [
       closeIcon.classList.toggle("hidden", !isOpening);
 
       // Header background
-      header.classList.toggle("bg-slate-900", isOpening);
+      // header.classList.toggle("bg-slate-900", isOpening);
 
       // Logo swap
       logo.src = isOpening ? "/logo-bookmark-dark.svg" : "/logo-bookmark.svg";

@@ -1,0 +1,91 @@
+---
+const downloads = [
+  {
+    id: 1,
+    name: "Chrome",
+    logo: "/logo-chrome.svg",
+    minVersion: "Minimum version 62",
+  },
+  {
+    id: 2,
+    name: "Firefox",
+    logo: "/logo-firefox.svg",
+    minVersion: "Minimum version 55",
+  },
+  {
+    id: 3,
+    name: "Opera",
+    logo: "/logo-opera.svg",
+    minVersion: "Minimum version 46",
+  },
+];
+---
+
+<section class="bg-white py-24">
+  <div class="mx-auto max-w-90 px-6 text-center md:max-w-6xl">
+
+    <!-- Title -->
+    <h2 class="text-2xl font-bold md:text-4xl">
+      Download the extension
+    </h2>
+
+    <p class="mx-auto mt-6 w-full max-w-sm text-gray-400">
+      We’ve got more browsers in the pipeline. Please do let us know if
+      you’ve got a favourite you’d like us to prioritize.
+    </p>
+
+    <!-- Cards -->
+    <div
+      class="mt-16 grid gap-8
+             grid-cols-1
+             md:grid-cols-3 md:gap-10"
+    >
+      {downloads.map((item) => (
+      <div
+        class={`flex flex-col items-center
+                rounded-xl border border-gray-200
+                p-8 
+                 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.15)]
+                ${item.id === 2 ? "md:translate-y-12" : ""}
+                ${item.id === 3 ? "md:translate-y-24" : ""}`}
+        >
+
+          <!-- Logo -->
+          <img
+            src={item.logo}
+            alt={`${item.name} logo`}
+            class="h-24 w-auto"
+          />
+
+          <h3 class="mt-6 text-xl font-bold">
+            Add to {item.name}
+          </h3>
+
+          <p class="mt-2 text-md text-gray-400">
+            {item.minVersion}
+          </p>
+
+          <!-- Dotted divider -->
+          <div
+            class="my-6 h-3 w-full
+                    bg-[radial-gradient(circle,_#cad1de_3px,_transparent_4px)]
+                    bg-[length:32px_12px]
+                    bg-repeat-x bg-center"
+            ></div>
+
+
+          <!-- Button -->
+          <a
+            href="#"
+            class="w-full rounded-md bg-blue px-6 py-3
+                   text-sm font-semibold text-white
+                   shadow-sm hover:shadow-md
+                   hover:bg-blue-700 transition"
+          >
+            Add & Install Extension
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,57 @@
+---
+const {
+  title = "A Simple Bookmark Manager",
+  description = "A clean and simple interface to organize your favourite websites. Open a new browser tab and see your sites load instantly. Try it for free.",
+} = Astro.props;
+---
+
+<section class="w-full">
+  <div
+    class="mx-auto max-w-7xl px-6 py-16
+           flex flex-col-reverse items-center gap-16
+           md:flex-row"
+  >
+    <!-- Text -->
+    <div
+      class="w-full md:w-1/2
+             flex flex-col items-center text-center
+             md:items-start md:text-left"
+    >
+      <h1 class="text-3xl font-bold md:text-5xl">
+        {title}
+      </h1>
+
+      <p class="mt-6 max-w-md text-gray-500">
+        {description}
+      </p>
+
+      <div class="mt-8 flex flex-row gap-4">
+        <a
+          class="rounded-md bg-blue px-4 py-3 text-sm font-semibold text-white shadow-lg hover:bg-blue hover:shadow-md transition-shadow md:px-6"
+        >
+          Get it on Chrome
+        </a>
+        <a
+          class="rounded-md bg-gray-100 px-4 py-3 text-sm font-semibold text-gray-800 hover:bg-gray-200 shadow-lg hover:shadow-md transition-shadow md:px-6"
+        >
+          Get it on Firefox
+        </a>
+      </div>
+    </div>
+
+    <!-- Image -->
+    <div class="relative w-full md:w-1/2 flex justify-center">
+      <!-- Blue shape -->
+      <div
+        class="absolute -right-16 top-16 h-48 w-80 rounded-l-full overflow-hidden bg-blue md:h-80 md:w-150 md:-right-64 md:top-32"
+      >
+      </div>
+
+      <img
+        src="/illustration-hero.svg"
+        alt="Hero illustration"
+        class="relative z-10 w-full max-w-md md:max-w-xl"
+      />
+    </div>
+  </div>
+</section>

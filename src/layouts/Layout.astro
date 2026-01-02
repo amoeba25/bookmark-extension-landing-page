@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
 
+import "@fontsource-variable/rubik";
+
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
@@ -16,7 +18,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="en" class="min-h-screen">
+<html lang="en" class="min-h-screen overflow-x-hidden">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -31,10 +33,12 @@ const {
   </head>
 
   <body
-    class="min-h-screen bg-transparent flex flex-col justify-between font-text"
+    class="min-h-screen bg-transparent flex flex-col justify-between font-text overflow-x-hidden"
   >
     <Header />
-    <slot />
+    <main class="flex pt-24 flex-col gap-10">
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>
